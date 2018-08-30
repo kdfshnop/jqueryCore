@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // jQuery的核心框架结构;自执行函数,避免变量污染，传递window，便于压缩，查找，避免变量污染;
+        (function(window){
+            // 2.jQuery工厂模式，生成对象;jQuery为工厂函数;selector为传入的参数;
+            var jQuery=function(selector){
+                return new jQuery.fn.init(selector);//  jQuery.fn.init为构造函数;
+            };
+            // 3.给原型提供一个简称;jQuery是一个函数对象，有原型
+                jQuery.fn=jQuery.prototype={
+                    constructor:jQuery,
+                };
+            // 4.init构造函数;
+            var init=jQuery.fn.init=function(selector){
+                // 如果传入的为函数
+                if(selector){
+
+                }else if(selector){
+                    // 传入的为选择器
+                    [].push.call(this,selector); 
+                }else if(selecotr){
+                    // html中标签<p></p>;
+                }
+
+            };
+            // 5.替换构造函数的原型为工厂函数的模型;
+            init.prototype=jQuery.fn;
+            // 1. 暴露，是外界可以使用;
+            window.jQuery=window.$=jQuery;
+        })(window);
+    </script>
+</body>
+</html>
